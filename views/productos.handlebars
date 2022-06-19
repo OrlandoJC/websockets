@@ -1,0 +1,30 @@
+<div class="container">
+    <h1 class="text-light">Productos ✨</h1>
+    {{#if products}}
+        <table class="table table-light table-striped align-top">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Foto</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each products}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.price}}</td>
+                    <td><img src="{{this.pictureUrl}}" alt="" width="40"></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <div class="alert alert-danger" role="alert">
+           No hay productos 😥!
+        </div>
+    {{/if}}
+
+    <button type="button" class="btn  btn-outline-primary "> <i class="fas fa-arrow-left"></i> <a
+            class="text-white text-decoration-none" href="/">Añadir producto</a></button>
+</div>

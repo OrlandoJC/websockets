@@ -1,0 +1,49 @@
+<div class="container ">
+    <div class="row">
+        <div class="col-xl d-flex justify-content-center">
+            <form class="form" action="/productos" method="POST" id="form">
+                <div class="title">Añade un producto</div>
+                <div class="input-container ic1">
+                    <input id="title" class="input" type="text" name="name" placeholder="nombre" />
+                </div>
+                <div class="input-container ic2">
+                    <input id="price" class="input" type="text" name="price" placeholder="precio" />
+                </div>
+                <div class="input-container ic2">
+                    <input id="email" class="input" type="text" placeholder=" coloque la url de la imagen" name="image" />
+                </div>
+                <button type="submit" class="submit">Guardar</button>
+            </form>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center"> 
+        <div class="col-md-9  col-lg-9 ">
+            <h2 class="text-light">Productos ✨</h2>
+            {{#if products}}
+            <table class="table table-light table-striped align-top" >
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Foto</th>
+                    </tr>
+                </thead>
+                <tbody id="tableProducts">
+                    {{#each products}}
+                    <tr>
+                        <td>{{this.name}}</td>
+                        <td>{{this.price}}</td>
+                        <td><img src="{{this.image}}" alt="" width="40"></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{else}}
+            <div class="alert alert-danger" role="alert">
+                No hay productos 😥!
+            </div>
+            {{/if}}
+        </div>
+
+    </div>
+</div>
